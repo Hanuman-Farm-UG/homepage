@@ -8,7 +8,55 @@
 </head>
 <body>
     <h1>Shop Our Dried Mushrooms</h1>
-    <p>Check out our dried Lion’s Mane mushrooms available on <a href="YOUR_AMAZON_LINK" target="_blank">Amazon</a>.</p>
-    <img src="../assets/images/products/dried-mushroom.jpg" alt="Dried Lion's Mane Mushrooms">
+    <p>Check out our dried Lion's Mane mushrooms available on <a href="https://amzn.eu/d/bsgGQIm" target="_blank">Amazon</a>.</p>
+    
+    <div class="carousel-container">
+        <button class="carousel-button prev-button">❮</button>
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img src="../assets/images/products/front.jpg" alt="Front view of Lion's Mane Mushrooms">
+            </div>
+            <div class="carousel-slide">
+                <img src="../assets/images/products/back.jpg" alt="Back view of Lion's Mane Mushrooms">
+            </div>
+            <div class="carousel-slide">
+                <img src="../assets/images/products/with-scale.jpeg" alt="Lion's Mane Mushrooms with scale">
+            </div>
+            <div class="carousel-slide">
+                <img src="../assets/images/products/growing-out-ofbag.jpeg" alt="Lion's Mane Mushrooms growing">
+            </div>
+        </div>
+        <button class="carousel-button next-button">❯</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevButton = document.querySelector('.prev-button');
+            const nextButton = document.querySelector('.next-button');
+            let currentSlide = 0;
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+
+            prevButton.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateCarousel();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateCarousel();
+            });
+
+            // Optional: Auto-advance slides
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateCarousel();
+            }, 5000);
+        });
+    </script>
 </body>
 </html>
