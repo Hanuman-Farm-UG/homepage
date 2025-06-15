@@ -132,7 +132,8 @@ const Home = () => {
   const tHome = translations.home;
   return (
     <div>
-      <section className="bg-green-100 p-8 rounded-lg text-center">
+      <section className="hero bg-green-100 p-8 rounded-lg text-center">
+        <img src="/images/hero-farm.png" alt="Hanuman Farm" className="mx-auto mb-6 rounded-lg" />
         <h1 className="text-4xl font-bold mb-4">{tHome.heroTitle[lang]}</h1>
         <p className="mb-6">{tHome.heroText[lang]}</p>
         <div className="flex justify-center space-x-4">
@@ -141,10 +142,10 @@ const Home = () => {
         </div>
       </section>
       <section className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <ProductCard section="dried" img="/images/dried-thumb.jpg" path="/dried" />
-        <ProductCard section="kits" img="/images/kits-thumb.jpg" path="/kits" />
-        <ProductCard section="substrate" img="/images/substrate-thumb.jpg" path="/substrate" />
-        <ProductCard section="frozen" img="/images/frozen-thumb.jpg" path="/frozen" />
+        <ProductCard section="dried" img="/images/dried-thumb.png" path="/dried" />
+        <ProductCard section="kits" img="/images/kits-thumb.png" path="/kits" />
+        <ProductCard section="substrate" img="/images/substrate-thumb.png" path="/substrate" />
+        <ProductCard section="frozen" img="/images/frozen-thumb.png" path="/frozen" />
       </section>
       <section className="mt-16 bg-[#f4f4f4] p-6 rounded-lg text-center">
         <h2 className="text-xl font-semibold mb-2">{tHome.newsletterTitle[lang]}</h2>
