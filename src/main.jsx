@@ -1,8 +1,7 @@
 import React, { useState, createContext, useContext } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './index.css';
-
 // Translation dictionaries
 const translations = {
   nav: {
@@ -17,8 +16,8 @@ const translations = {
   },
   footer: { en: '© 2025 Hanuman Farm', de: '© 2025 Hanuman Farm' },
   home: {
-    heroTitle: { en: "Cultivate Wellness with Lion’s Mane", de: "Wellness kultivieren mit Löwenmähne" },
-    heroText: { en: "Discover the cognitive and wellness benefits of our premium Lion’s Mane mushrooms grown sustainably on Hanuman Farm.", de: "Entdecken Sie die kognitiven und Wellness-Vorteile unserer nachhaltig angebauten Premium-Löwenmähnenpilze." },
+    heroTitle: { en: "Cultivate Wellness with Lion's Mane", de: "Wellness kultivieren mit Löwenmähne" },
+    heroText: { en: "Discover the cognitive and wellness benefits of our premium Lion's Mane mushrooms grown sustainably on Hanuman Farm.", de: "Entdecken Sie die kognitiven und Wellness-Vorteile unserer nachhaltig angebauten Premium-Löwenmähnenpilze." },
     shopNow: { en: 'Shop Now', de: 'Jetzt einkaufen' },
     learnMore: { en: 'Learn More', de: 'Mehr erfahren' },
     newsletterTitle: { en: 'Join Our Newsletter', de: 'Newsletter abonnieren' },
@@ -30,28 +29,28 @@ const translations = {
     title: { en: 'Shop All Products', de: 'Alle Produkte' }
   },
   dried: {
-    title: { en: "Lion’s Mane Dried Mushrooms", de: 'Löwenmähne Trockenpilze' },
+    title: { en: "Lion's Mane Dried Mushrooms", de: 'Löwenmähne Trockenpilze' },
     description: { en: 'Slow-dried to preserve nutrients. Great for tea, soups, or cooking.', de: 'Schonend getrocknet für Nährstoff- und Geschmacksbewahrung. Perfekt für Tee, Suppen und Küche.' },
     specs: { en: ['50g, 100g, 200g pouches', '12-month shelf life', '100% organic'], de: ['50g, 100g, 200g Beutel', '12 Monate Haltbarkeit', '100 % Bio'] },
     price: { en: '$14.99 – $29.99', de: '14,99 € – 29,99 €' },
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   kits: {
-    title: { en: "Lion’s Mane Grow Kits", de: 'Löwenmähne Grow-Kits' },
+    title: { en: "Lion's Mane Grow Kits", de: 'Löwenmähne Grow-Kits' },
     description: { en: 'Includes substrate block & tent, easy for beginners.', de: 'Enthält Substratblock & Zelt, ideal für Anfänger.' },
     specs: { en: ['5kg block', '60x60x120cm tent', 'Instructions'], de: ['5kg Block', '60x60x120cm Zelt', 'Anleitung'] },
     price: { en: '$79.99', de: '79,99 €' },
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   substrate: {
-    title: { en: "Lion’s Mane Substrate Boxes", de: 'Löwenmähne Substrat-Boxen' },
+    title: { en: "Lion's Mane Substrate Boxes", de: 'Löwenmähne Substrat-Boxen' },
     description: { en: 'Refill your tent with ready-to-fruit substrate.', de: 'Zelt mit fruchtbarem Substrat nachfüllen.' },
     specs: { en: ['Pre-inoculated', 'Minimal setup', 'Plastic-free'], de: ['Vorinokuliert', 'Minimaler Aufbau', 'Ohne Plastik'] },
     price: { en: '$39.99', de: '39,99 €' },
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   frozen: {
-    title: { en: "Frozen Fresh Lion’s Mane Mushrooms", de: 'Gefrorene frische Löwenmähne' },
+    title: { en: "Frozen Fresh Lion's Mane Mushrooms", de: 'Gefrorene frische Löwenmähne' },
     description: { en: 'Flash-frozen for peak freshness.', de: 'Blitzgefrostet für höchste Frische.' },
     specs: { en: ['500g packs', 'Shipped frozen', 'No preservatives'], de: ['500g Packungen', 'Gefroren versendet', 'Ohne Konservierungsstoffe'] },
     price: { en: '$34.99', de: '34,99 €' },
@@ -59,10 +58,10 @@ const translations = {
   },
   about: {
     title: { en: 'About Us', de: 'Über uns' },
-    text: { en: 'Family-run farm since 2020, dedicated to sustainable Lion’s Mane cultivation.', de: 'Familienbetrieb seit 2020, fokussiert auf nachhaltigen Löwenmähnen-Anbau.' }
+    text: { en: "Family-run farm since 2020, dedicated to sustainable Lion's Mane cultivation.", de: 'Familienbetrieb seit 2020, fokussiert auf nachhaltigen Löwenmähnen-Anbau.' }
   },
   benefits: {
-    title: { en: 'Health Benefits of Lion’s Mane', de: 'Gesundheitsvorteile der Löwenmähne' },
+    title: { en: "Health Benefits of Lion's Mane", de: 'Gesundheitsvorteile der Löwenmähne' },
     list: { en: ['Neuroprotective', 'Anti-inflammatory', 'Immune support', 'Mood & focus', 'Digestive health'], de: ['Neuroprotektiv', 'Entzündungshemmend', 'Immunsystem', 'Stimmung & Fokus', 'Verdauungsgesundheit'] }
   },
   faq: {
@@ -133,7 +132,7 @@ const Home = () => {
   return (
     <div>
       <section className="hero bg-green-100 p-8 rounded-lg text-center">
-        <img src="/images/hero-farm.png" alt="Hanuman Farm" className="mx-auto mb-6 rounded-lg" />
+        <img src={`${import.meta.env.BASE_URL}images/hero-farm.png`} alt="Hanuman Farm" className="mx-auto mb-6 rounded-lg" />
         <h1 className="text-4xl font-bold mb-4">{tHome.heroTitle[lang]}</h1>
         <p className="mb-6">{tHome.heroText[lang]}</p>
         <div className="flex justify-center space-x-4">
@@ -142,10 +141,10 @@ const Home = () => {
         </div>
       </section>
       <section className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <ProductCard section="dried" img="/images/dried-thumb.png" path="/dried" />
-        <ProductCard section="kits" img="/images/kits-thumb.png" path="/kits" />
-        <ProductCard section="substrate" img="/images/substrate-thumb.png" path="/substrate" />
-        <ProductCard section="frozen" img="/images/frozen-thumb.png" path="/frozen" />
+        <ProductCard section="dried" img={`${import.meta.env.BASE_URL}/images/dried-thumb.png`} path="/dried" />
+        <ProductCard section="kits" img={`${import.meta.env.BASE_URL}/images/kits-thumb.png`} path="/kits" />
+        <ProductCard section="substrate" img={`${import.meta.env.BASE_URL}/images/substrate-thumb.png`} path="/substrate" />
+        <ProductCard section="frozen" img={`${import.meta.env.BASE_URL}/images/frozen-thumb.png`} path="/frozen" />
       </section>
       <section className="mt-16 bg-[#f4f4f4] p-6 rounded-lg text-center">
         <h2 className="text-xl font-semibold mb-2">{tHome.newsletterTitle[lang]}</h2>
@@ -164,7 +163,7 @@ const GenericProduct = ({ section }) => {
   const t = translations[section];
   return (
     <div className="max-w-3xl mx-auto space-y-4">
-      <img src={`/images/${section}-detail.jpg`} alt={t.title[lang]} className="w-full rounded-lg" />
+      <img src={`${import.meta.env.BASE_URL}/images/${section}-detail.jpg`} alt={t.title[lang]} className="w-full rounded-lg" />
       <h2 className="text-3xl font-semibold">{t.title[lang]}</h2>
       <p>{t.description[lang]}</p>
       <ul className="list-disc list-inside">
@@ -182,7 +181,7 @@ const About = () => {
     <div className="max-w-3xl mx-auto space-y-4">
       <h2 className="text-3xl font-semibold">{translations.about.title[lang]}</h2>
       <p>{translations.about.text[lang]}</p>
-      <img src="/images/farm-detail.jpg" alt="Farm" className="w-full rounded-lg" />
+      <img src={`${import.meta.env.BASE_URL}/images/farm-detail.jpg`} alt="Farm" className="w-full rounded-lg" />
     </div>
   );
 };
