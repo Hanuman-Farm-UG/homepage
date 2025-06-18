@@ -76,12 +76,14 @@ const translations = {
   },
   impressum: {
     title: { en: 'Impressum', de: 'Impressum' },
-    lines: [
-      { en: 'Hanuman Farm GmbH', de: 'Hanuman Farm GmbH' },
-      { en: 'Musterstraße 1, 12345 Berlin', de: 'Musterstraße 1, 12345 Berlin' },
-      { en: 'Email: info@hanumanfarm.de', de: 'E-Mail: info@hanumanfarm.de' },
-      { en: 'CEO: John Doe', de: 'Geschäftsführer: John Doe' }
-    ]
+    companyName: { en: 'Hanuman Farm UG', de: 'Hanuman Farm UG' },
+    address: { en: 'Harburger Str. 120, 21680 Stade', de: 'Harburger Str. 120, 21680 Stade' },
+    phone: { en: '+49-17661473880', de: '+49-17661473880' },
+    email: { en: 'kontakt@hanumanfarm.com', de: 'kontakt@hanumanfarm.com' },
+    website: { en: 'hanumanfarm.com', de: 'hanumanfarm.com' },
+    registerNumber: { en: 'HRB 210670, Tostedt', de: 'HRB 210670, Tostedt' },
+    representative: { en: 'Suryanarayanamurthy, Hanumantha Vajjhala', de: 'Suryanarayanamurthy, Hanumantha Vajjhala' },
+    vatId: { en: 'DE367682205', de: 'DE367682205' }
   }
 };
 
@@ -231,10 +233,29 @@ const Contact = () => {
 
 const Impressum = () => {
   const { lang } = useContext(LanguageContext);
+  const t = translations.impressum;
   return (
-    <div className="max-w-3xl mx-auto space-y-4">
-      <h2 className="text-3xl font-semibold">{translations.impressum.title[lang]}</h2>
-      {translations.impressum.lines.map((line) => (<p key={line[lang]}>{line[lang]}</p>))}
+    <div className="max-w-3xl mx-auto space-y-6">
+      <h2 className="text-3xl font-semibold">{t.title[lang]}</h2>
+      
+      <div className="space-y-4">
+        <div>
+          <h3 className="font-semibold text-lg mb-2">{t.companyName[lang]}</h3>
+        </div>
+        
+        <div className="space-y-2">
+          <p><strong>Address:</strong> {t.address[lang]}</p>
+          <p><strong>Phone:</strong> <a href={`tel:${t.phone[lang]}`} className="text-blue-600 hover:underline">{t.phone[lang]}</a></p>
+          <p><strong>Email:</strong> <a href={`mailto:${t.email[lang]}`} className="text-blue-600 hover:underline">{t.email[lang]}</a></p>
+          <p><strong>Website:</strong> <a href={`https://${t.website[lang]}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{t.website[lang]}</a></p>
+        </div>
+        
+        <div className="space-y-2">
+          <p><strong>Register Number:</strong> {t.registerNumber[lang]}</p>
+          <p><strong>Authorized Representative:</strong> {t.representative[lang]}</p>
+          <p><strong>VAT ID:</strong> {t.vatId[lang]}</p>
+        </div>
+      </div>
     </div>
   );
 };
