@@ -31,9 +31,9 @@ const translations = {
   dried: {
     title: { en: "Lion's Mane Dried Mushrooms", de: 'Löwenmähne Trockenpilze' },
     description: { en: 'Slow-dried to preserve nutrients. Great for tea, soups, or cooking.', de: 'Schonend getrocknet für Nährstoff- und Geschmacksbewahrung. Perfekt für Tee, Suppen und Küche.' },
-    specs: { en: ['50g, 100g, 200g pouches', '12-month shelf life', '100% organic'], de: ['50g, 100g, 200g Beutel', '12 Monate Haltbarkeit', '100 % Bio'] },
-    price: { en: '$14.99 – $29.99', de: '14,99 € – 29,99 €' },
-    addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
+    specs: { en: ['100g pouche', '12-month shelf life', '100% organic'], de: ['100g Beutel', '12 Monate Haltbarkeit', '100 % Bio'] },
+    price: { en: '€10.00 – €15.00 (Price range. The exact price depends on the harvest season and current offers. Please click "Buy Now" below to check the current price on Amazon.)', de: '10,00 € – 15,00 € (Preisspanne. Der genaue Preis hängt von der Erntesaison und aktuellen Angeboten ab. Bitte klicken Sie unten auf „Jetzt kaufen“, um den aktuellen Preis auf Amazon zu sehen.)' },
+    addToCart: { en: 'Buy Now', de: 'Jetzt kaufen' }
   },
   kits: {
     title: { en: "Lion's Mane Grow Kits", de: 'Löwenmähne Grow-Kits' },
@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen text-[#2d2d2d] bg-[#fdf6e3]">
       <header className="bg-[#2f4f4f] text-white p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Hanuman Farm</h1>
+        <Link to="/" className="text-2xl font-bold hover:text-gray-200">Hanuman Farm</Link>
         <nav className="flex space-x-4">
           {['home','shop','about','benefits','faq','contact'].map((key) => (
             <Link key={key} to={key==='home'?'/':`/${key}`}>{translations.nav[key][lang]}</Link>
@@ -163,6 +163,28 @@ const Home = () => {
 const GenericProduct = ({ section }) => {
   const { lang } = useContext(LanguageContext);
   const t = translations[section];
+  
+  const renderButton = () => {
+    if (section === 'dried') {
+      return (
+        <a 
+          href="https://amzn.eu/d/f7Voqug" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-[#2f4f4f] text-white px-6 py-2 rounded hover:bg-[#1a2f2f] inline-block"
+        >
+          {t.addToCart[lang]}
+        </a>
+      );
+    }
+    
+    return (
+      <button className="bg-[#2f4f4f] text-white px-6 py-2 rounded">
+        {t.addToCart[lang]}
+      </button>
+    );
+  };
+
   return (
     <div className="max-w-3xl mx-auto space-y-4">
       <img src={`${import.meta.env.BASE_URL}/images/${section}-detail.jpg`} alt={t.title[lang]} className="w-full rounded-lg" />
@@ -172,7 +194,7 @@ const GenericProduct = ({ section }) => {
         {t.specs[lang].map((item) => (<li key={item}>{item}</li>))}
       </ul>
       <p className="text-xl font-bold mt-2">{t.price[lang]}</p>
-      <button className="bg-[#2f4f4f] text-white px-6 py-2 rounded">{t.addToCart[lang]}</button>
+      {renderButton()}
     </div>
   );
 };
