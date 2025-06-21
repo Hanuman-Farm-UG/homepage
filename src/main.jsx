@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import './index.css';
@@ -410,6 +410,25 @@ const Impressum = () => {
   );
 };
 
+// Shop component that redirects to home and scrolls to products
+const Shop = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Navigate to home page
+    navigate('/');
+    // Wait for navigation to complete, then scroll to products
+    setTimeout(() => {
+      const productsSection = document.getElementById('products-section');
+      if (productsSection) {
+        productsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  }, [navigate]);
+
+  return null; // This component doesn't render anything
+};
+
 const App = () => {
   const [lang, setLang] = useState('en');
   const toggleLang = () => setLang((prev) => (prev === 'en' ? 'de' : 'en'));
@@ -420,6 +439,7 @@ const App = () => {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
             <Route path="/dried" element={<GenericProduct section="dried" />} />
             <Route path="/kits" element={<GenericProduct section="kits" />} />
             <Route path="/substrate" element={<GenericProduct section="substrate" />} />
