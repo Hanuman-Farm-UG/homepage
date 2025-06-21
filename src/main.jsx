@@ -174,10 +174,10 @@ const Home = () => {
         </div>
       </section>
       <section id="products-section" className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <ProductCard section="dried" img={`${import.meta.env.BASE_URL}/images/dried-thumb.png`} path="/dried" />
-        <ProductCard section="kits" img={`${import.meta.env.BASE_URL}/images/kits-thumb.png`} path="/kits" />
-        <ProductCard section="substrate" img={`${import.meta.env.BASE_URL}/images/substrate-thumb.png`} path="/substrate" />
-        <ProductCard section="frozen" img={`${import.meta.env.BASE_URL}/images/frozen-thumb.png`} path="/frozen" />
+        <ProductCard section="dried" img={`${import.meta.env.BASE_URL}images/dried-thumb.png`} path="/dried" />
+        <ProductCard section="kits" img={`${import.meta.env.BASE_URL}images/kits-thumb.png`} path="/kits" />
+        <ProductCard section="substrate" img={`${import.meta.env.BASE_URL}images/substrate-thumb.png`} path="/substrate" />
+        <ProductCard section="frozen" img={`${import.meta.env.BASE_URL}images/frozen-thumb.png`} path="/frozen" />
       </section>
       <section className="mt-16 bg-[#f4f4f4] p-6 rounded-lg text-center">
         <h2 className="text-xl font-semibold mb-2">{tHome.newsletterTitle[lang]}</h2>
@@ -218,7 +218,7 @@ const GenericProduct = ({ section }) => {
 
   return (
     <div className="max-w-3xl mx-auto space-y-4">
-      <img src={`${import.meta.env.BASE_URL}/images/${section}-detail.jpg`} alt={t.title[lang]} className="w-full rounded-lg" />
+      <img src={`${import.meta.env.BASE_URL}images/${section}-detail.jpg`} alt={t.title[lang]} className="w-full rounded-lg" />
       <h2 className="text-3xl font-semibold">{t.title[lang]}</h2>
       <p>{t.description[lang]}</p>
       <ul className="list-disc list-inside">
@@ -237,7 +237,7 @@ const About = () => {
       <h2 className="text-3xl font-semibold mb-4">{translations.about.title[lang]}</h2>
       <p className="mb-4">{translations.about.text1[lang]}</p>
       <p className="mb-4">{translations.about.text2[lang]}</p>
-      <img src={`${import.meta.env.BASE_URL}/images/farm-detail.jpg`} alt="Farm" className="w-full rounded-lg" />
+      <img src={`${import.meta.env.BASE_URL}images/farm-detail.jpg`} alt="Farm" className="w-full rounded-lg" />
     </div>
   );
 };
