@@ -111,30 +111,7 @@ const LanguageContext = createContext();
 // Layout with Nav and Footer
 const Layout = ({ children }) => {
   const { lang, toggleLang } = useContext(LanguageContext);
-  const navigate = useNavigate();
   const t = (section, key) => translations[section][key]?.[lang] || '';
-
-  const handleShopClick = (e) => {
-    e.preventDefault();
-    
-    // Navigate to home page first if not already there
-    if (window.location.hash !== '#/') {
-      navigate('/');
-      // Wait for navigation to complete, then scroll
-      setTimeout(() => {
-        const productsSection = document.getElementById('products-section');
-        if (productsSection) {
-          productsSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      // Already on home page, just scroll
-      const productsSection = document.getElementById('products-section');
-      if (productsSection) {
-        productsSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
 
   return (
     <div className="flex flex-col min-h-screen text-[#2d2d2d] bg-[#fdf6e3]">
@@ -144,7 +121,7 @@ const Layout = ({ children }) => {
           {['home'].map((key) => (
             <Link key={key} to={key==='home'?'/':`/${key}`}>{translations.nav[key][lang]}</Link>
           ))}
-          <a href="#products-section" onClick={handleShopClick} className="hover:text-gray-200">{translations.nav.shop[lang]}</a>
+          <Link to="/shop" className="hover:text-gray-200">{translations.nav.shop[lang]}</Link>
           {['about','benefits','faq','contact'].map((key) => (
             <Link key={key} to={key==='home'?'/':`/${key}`}>{translations.nav[key][lang]}</Link>
           ))}
