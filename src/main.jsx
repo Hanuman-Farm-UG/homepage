@@ -97,12 +97,25 @@ const LanguageContext = createContext();
 const Layout = ({ children }) => {
   const { lang, toggleLang } = useContext(LanguageContext);
   const t = (section, key) => translations[section][key]?.[lang] || '';
+
+  const handleShopClick = (e) => {
+    e.preventDefault();
+    const productsSection = document.getElementById('products-section');
+    if (productsSection) {
+      productsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen text-[#2d2d2d] bg-[#fdf6e3]">
       <header className="bg-[#2f4f4f] text-white p-4 flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold hover:text-gray-200">Hanuman Farm</Link>
         <nav className="flex space-x-4">
-          {['home','shop','about','benefits','faq','contact'].map((key) => (
+          {['home'].map((key) => (
+            <Link key={key} to={key==='home'?'/':`/${key}`}>{translations.nav[key][lang]}</Link>
+          ))}
+          <a href="#products-section" onClick={handleShopClick} className="hover:text-gray-200">{translations.nav.shop[lang]}</a>
+          {['about','benefits','faq','contact'].map((key) => (
             <Link key={key} to={key==='home'?'/':`/${key}`}>{translations.nav[key][lang]}</Link>
           ))}
           <button onClick={toggleLang} className="ml-4 p-1 border rounded">{translations.nav.toggle[lang]}</button>
@@ -145,7 +158,7 @@ const Home = () => {
           <Link to="/benefits" className="bg-[#dc762f] text-white px-6 py-2 rounded">{tHome.learnMore[lang]}</Link>
         </div>
       </section>
-      <section className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section id="products-section" className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <ProductCard section="dried" img={`${import.meta.env.BASE_URL}/images/dried-thumb.png`} path="/dried" />
         <ProductCard section="kits" img={`${import.meta.env.BASE_URL}/images/kits-thumb.png`} path="/kits" />
         <ProductCard section="substrate" img={`${import.meta.env.BASE_URL}/images/substrate-thumb.png`} path="/substrate" />
@@ -351,7 +364,6 @@ const App = () => {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/shop" element={<Home />} />
             <Route path="/dried" element={<GenericProduct section="dried" />} />
             <Route path="/kits" element={<GenericProduct section="kits" />} />
             <Route path="/substrate" element={<GenericProduct section="substrate" />} />
