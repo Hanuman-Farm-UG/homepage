@@ -63,7 +63,22 @@ const translations = {
   },
   benefits: {
     title: { en: "Health Benefits of Lion's Mane", de: 'Gesundheitsvorteile des Igel-Stachelbarts' },
-    list: { en: ['Neuroprotective', 'Anti-inflammatory', 'Immune support', 'Mood & focus', 'Digestive health'], de: ['Neuroprotektiv', 'Entzündungshemmend', 'Immunsystem', 'Stimmung & Fokus', 'Verdauungsgesundheit'] }
+    list: { en: ['Neuroprotective', 'Anti-inflammatory', 'Immune support', 'Mood & focus', 'Digestive health'], de: ['Neuroprotektiv', 'Entzündungshemmend', 'Immunsystem', 'Stimmung & Fokus', 'Verdauungsgesundheit'] },
+    description1: { en: "Lion's Mane (Hericium erinaceus) is renowned for its neuroprotective and cognitive-supporting properties. Studies suggest it can stimulate Nerve Growth Factor (NGF), aiding in neural regeneration.", de: "Der Igel-Stachelbart (Hericium erinaceus) ist bekannt für seine neuroprotektiven und kognitionsfördernden Eigenschaften. Studien legen nahe, dass er den Nervenwachstumsfaktor (NGF) stimulieren kann, was die Nervenregeneration unterstützt." },
+    description2: { en: "It is also being researched for its potential to alleviate anxiety and depression, support digestive health, and offer immune-modulating effects.", de: "Er wird auch auf sein Potenzial zur Linderung von Angst und Depression, zur Unterstützung der Verdauungsgesundheit und zur immunmodulierenden Wirkung erforscht." },
+    referencesTitle: { en: "Selected references & further reading:", de: "Ausgewählte Referenzen & weiterführende Literatur:" },
+    references: { 
+      en: [
+        "Mori, K., et al. \"Nerve Growth Factor-inducing Activity of Hericium erinaceus in 1321N1 Human Astrocytoma Cells.\" Biological & Pharmaceutical Bulletin, 2008.",
+        "Ryu, S., et al. \"Improvement of cognitive functions by oral administration of Hericium erinaceus.\" Biomedical Research, 2010.",
+        "Zhang, Z., et al. \"Immunomodulatory and gut microbiota-regulating effects of edible and medicinal mushrooms.\" International Journal of Molecular Sciences, 2022."
+      ],
+      de: [
+        "Mori, K., et al. \"Nerve Growth Factor-inducing Activity of Hericium erinaceus in 1321N1 Human Astrocytoma Cells.\" Biological & Pharmaceutical Bulletin, 2008.",
+        "Ryu, S., et al. \"Improvement of cognitive functions by oral administration of Hericium erinaceus.\" Biomedical Research, 2010.",
+        "Zhang, Z., et al. \"Immunomodulatory and gut microbiota-regulating effects of edible and medicinal mushrooms.\" International Journal of Molecular Sciences, 2022."
+      ]
+    }
   },
   faq: {
     items: [
@@ -230,11 +245,31 @@ const About = () => {
 const Benefits = () => {
   const { lang } = useContext(LanguageContext);
   return (
-    <div className="max-w-3xl mx-auto space-y-4">
+    <div className="max-w-3xl mx-auto space-y-6">
       <h2 className="text-3xl font-semibold">{translations.benefits.title[lang]}</h2>
+
       <ul className="list-disc list-inside grid grid-cols-1 md:grid-cols-2 gap-2">
         {translations.benefits.list[lang].map((b) => (<li key={b}>{b}</li>))}
       </ul>
+
+      <div className="space-y-4 text-sm text-gray-800">
+        <p>{translations.benefits.description1[lang]}</p>
+        <p>{translations.benefits.description2[lang]}</p>
+        <p>
+          <strong>{translations.benefits.referencesTitle[lang]}</strong>
+        </p>
+        <ul className="list-disc list-inside space-y-1 pl-4">
+          <li>
+            {translations.benefits.references[lang][0]} <a className="text-blue-600 underline" href="https://doi.org/10.1248/bpb.31.1727" target="_blank" rel="noopener noreferrer">DOI:10.1248/bpb.31.1727</a>
+          </li>
+          <li>
+            {translations.benefits.references[lang][1]}
+          </li>
+          <li>
+            {translations.benefits.references[lang][2]} <a className="text-blue-600 underline" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8785010/" target="_blank" rel="noopener noreferrer">PMC8785010</a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
