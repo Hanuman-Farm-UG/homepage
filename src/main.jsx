@@ -179,14 +179,6 @@ const Home = () => {
         <ProductCard section="substrate" img={`${import.meta.env.BASE_URL}images/substrate-thumb.png`} path="/substrate" />
         <ProductCard section="frozen" img={`${import.meta.env.BASE_URL}images/frozen-thumb.png`} path="/frozen" />
       </section>
-      <section className="mt-16 bg-[#f4f4f4] p-6 rounded-lg text-center">
-        <h2 className="text-xl font-semibold mb-2">{tHome.newsletterTitle[lang]}</h2>
-        <p className="mb-4">{tHome.newsletterText[lang]}</p>
-        <form className="flex justify-center">
-          <input type="email" placeholder={tHome.newsletterPlaceholder[lang]} className="p-2 border rounded-l w-64" />
-          <button type="submit" className="bg-[#2f4f4f] text-white px-4 py-2 rounded-r">{tHome.newsletterSubscribe[lang]}</button>
-        </form>
-      </section>
     </div>
   );
 };
