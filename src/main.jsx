@@ -73,7 +73,8 @@ const translations = {
   },
   contact: {
     title: { en: 'Contact Us', de: 'Kontakt' },
-    placeholders: { name: { en: 'Name', de: 'Name' }, email: { en: 'Email', de: 'E-Mail' }, message: { en: 'Message', de: 'Nachricht' }, submit: { en: 'Send Message', de: 'Senden' } }
+    placeholders: { name: { en: 'Name', de: 'Name' }, email: { en: 'Email', de: 'E-Mail' }, message: { en: 'Message', de: 'Nachricht' }, submit: { en: 'Send Message', de: 'Senden' } },
+    success: { en: 'Message sent successfully! We will get back to you soon.', de: 'Nachricht erfolgreich gesendet! Wir melden uns bald bei Ihnen.' }
   },
   comingSoon: { en: 'Coming Soon!', de: 'Demnächst verfügbar!' },
   impressum: {
@@ -243,14 +244,69 @@ const FAQ = () => {
 const Contact = () => {
   const { lang } = useContext(LanguageContext);
   const p = translations.contact.placeholders;
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mldnwovb', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        e.target.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Error sending message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (isSubmitted) {
+    return (
+      <div className="max-w-3xl mx-auto space-y-4">
+        <h2 className="text-3xl font-semibold">{translations.contact.title[lang]}</h2>
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+          {translations.contact.success[lang]}
+        </div>
+        <button 
+          onClick={() => setIsSubmitted(false)} 
+          className="bg-[#2f4f4f] text-white px-6 py-2 rounded hover:bg-[#1a2f2f]"
+        >
+          {lang === 'en' ? 'Send Another Message' : 'Weitere Nachricht senden'}
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-3xl mx-auto space-y-4">
       <h2 className="text-3xl font-semibold">{translations.contact.title[lang]}</h2>
-      <form action="https://formspree.io/f/your-form-id" method="POST" className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <label className="block"><span>{p.name[lang]}</span><input type="text" name="name" required className="mt-1 p-2 border rounded w-full" /></label>
         <label className="block"><span>{p.email[lang]}</span><input type="email" name="email" required className="mt-1 p-2 border rounded w-full" /></label>
         <label className="block"><span>{p.message[lang]}</span><textarea name="message" rows="4" required className="mt-1 p-2 border rounded w-full"></textarea></label>
-        <button type="submit" className="bg-[#2f4f4f] text-white px-6 py-2 rounded">{p.submit[lang]}</button>
+        <button 
+          type="submit" 
+          disabled={isSubmitting}
+          className={`px-6 py-2 rounded text-white ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#2f4f4f] hover:bg-[#1a2f2f]'}`}
+        >
+          {isSubmitting ? (lang === 'en' ? 'Sending...' : 'Wird gesendet...') : p.submit[lang]}
+        </button>
       </form>
     </div>
   );
