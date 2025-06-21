@@ -16,8 +16,8 @@ const translations = {
   },
   footer: { en: '© 2025 Hanuman Farm', de: '© 2025 Hanuman Farm' },
   home: {
-    heroTitle: { en: "Cultivate Wellness with Lion's Mane", de: "Wellness kultivieren mit Löwenmähne" },
-    heroText: { en: "Discover the cognitive and wellness benefits of our premium Lion's Mane mushrooms grown sustainably on Hanuman Farm.", de: "Entdecken Sie die kognitiven und Wellness-Vorteile unserer nachhaltig angebauten Premium-Löwenmähnenpilze." },
+    heroTitle: { en: "Cultivate Wellness with Lion's Mane", de: "Wellness kultivieren mit Igel-Stachelbart" },
+    heroText: { en: "Discover the cognitive and wellness benefits of our premium Lion's Mane mushrooms grown sustainably on Hanuman Farm.", de: "Entdecken Sie die kognitiven und Wellness-Vorteile unserer nachhaltig angebauten Premium-Igel-Stachelbart-Pilze." },
     shopNow: { en: 'Shop Now', de: 'Jetzt einkaufen' },
     learnMore: { en: 'Learn More', de: 'Mehr erfahren' },
     newsletterTitle: { en: 'Join Our Newsletter', de: 'Newsletter abonnieren' },
@@ -29,28 +29,28 @@ const translations = {
     title: { en: 'Shop All Products', de: 'Alle Produkte' }
   },
   dried: {
-    title: { en: "Lion's Mane Dried Mushrooms", de: 'Löwenmähne Trockenpilze' },
+    title: { en: "Lion's Mane Dried Mushrooms", de: 'Igel-Stachelbart Trockenpilze' },
     description: { en: 'Slow-dried to preserve nutrients. Great for tea, soups, or cooking.', de: 'Schonend getrocknet für Nährstoff- und Geschmacksbewahrung. Perfekt für Tee, Suppen und Küche.' },
     specs: { en: ['100g pouche', '12-month shelf life', '100% organic'], de: ['100g Beutel', '12 Monate Haltbarkeit', '100 % Bio'] },
-    price: { en: '€10.00 – €15.00 (Price range. The exact price depends on the harvest season and current offers. Please click "Buy Now" below to check the current price on Amazon.)', de: '10,00 € – 15,00 € (Preisspanne. Der genaue Preis hängt von der Erntesaison und aktuellen Angeboten ab. Bitte klicken Sie unten auf „Jetzt kaufen“, um den aktuellen Preis auf Amazon zu sehen.)' },
+    price: { en: '€10.00 – €15.00 (Price range. The exact price depends on the harvest season and current offers. Please click "Buy Now" below to check the current price on Amazon.)', de: '10,00 € – 15,00 € (Preisspanne. Der genaue Preis hängt von der Erntesaison und aktuellen Angeboten ab. Bitte klicken Sie unten auf „Jetzt kaufen", um den aktuellen Preis auf Amazon zu sehen.)' },
     addToCart: { en: 'Buy Now', de: 'Jetzt kaufen' }
   },
   kits: {
-    title: { en: "Lion's Mane Grow Kits", de: 'Löwenmähne Grow-Kits' },
+    title: { en: "Lion's Mane Grow Kits", de: 'Igel-Stachelbart Grow-Kits' },
     description: { en: 'Includes substrate block & tent, easy for beginners.', de: 'Enthält Substratblock & Zelt, ideal für Anfänger.' },
     specs: { en: ['5kg block', '60x60x120cm tent', 'Instructions'], de: ['5kg Block', '60x60x120cm Zelt', 'Anleitung'] },
     price: { en: '$79.99', de: '79,99 €' },
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   substrate: {
-    title: { en: "Lion's Mane Substrate Boxes", de: 'Löwenmähne Substrat-Boxen' },
+    title: { en: "Lion's Mane Substrate Boxes", de: 'Igel-Stachelbart Substrat-Boxen' },
     description: { en: 'Refill your tent with ready-to-fruit substrate.', de: 'Zelt mit fruchtbarem Substrat nachfüllen.' },
     specs: { en: ['Pre-inoculated', 'Minimal setup', 'Plastic-free'], de: ['Vorinokuliert', 'Minimaler Aufbau', 'Ohne Plastik'] },
     price: { en: '$39.99', de: '39,99 €' },
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   frozen: {
-    title: { en: "Frozen Fresh Lion's Mane Mushrooms", de: 'Gefrorene frische Löwenmähne' },
+    title: { en: "Frozen Fresh Lion's Mane Mushrooms", de: 'Gefrorene frische Igel-Stachelbart-Pilze' },
     description: { en: 'Flash-frozen for peak freshness.', de: 'Blitzgefrostet für höchste Frische.' },
     specs: { en: ['500g packs', 'Shipped frozen', 'No preservatives'], de: ['500g Packungen', 'Gefroren versendet', 'Ohne Konservierungsstoffe'] },
     price: { en: '$34.99', de: '34,99 €' },
@@ -58,10 +58,10 @@ const translations = {
   },
   about: {
     title: { en: 'About Us', de: 'Über uns' },
-    text: { en: "Family-run farm since 2020, dedicated to sustainable Lion's Mane cultivation.", de: 'Familienbetrieb seit 2020, fokussiert auf nachhaltigen Löwenmähnen-Anbau.' }
+    text: { en: "Family-run farm since 2020, dedicated to sustainable Lion's Mane cultivation.", de: 'Familienbetrieb seit 2020, fokussiert auf nachhaltigen Igel-Stachelbart-Anbau.' }
   },
   benefits: {
-    title: { en: "Health Benefits of Lion's Mane", de: 'Gesundheitsvorteile der Löwenmähne' },
+    title: { en: "Health Benefits of Lion's Mane", de: 'Gesundheitsvorteile des Igel-Stachelbarts' },
     list: { en: ['Neuroprotective', 'Anti-inflammatory', 'Immune support', 'Mood & focus', 'Digestive health'], de: ['Neuroprotektiv', 'Entzündungshemmend', 'Immunsystem', 'Stimmung & Fokus', 'Verdauungsgesundheit'] }
   },
   faq: {
