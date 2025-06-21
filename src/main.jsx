@@ -32,28 +32,28 @@ const translations = {
     title: { en: "Lion's Mane Dried Mushrooms", de: 'Igel-Stachelbart Trockenpilze' },
     description: { en: 'Slow-dried to preserve nutrients. Great for tea, soups, or cooking.', de: 'Schonend getrocknet für Nährstoff- und Geschmacksbewahrung. Perfekt für Tee, Suppen und Küche.' },
     specs: { en: ['100g pouche', '12-month shelf life', '100% organic'], de: ['100g Beutel', '12 Monate Haltbarkeit', '100 % Bio'] },
-    price: { en: '€10.00 – €15.00 (Price range. The exact price depends on the harvest season and current offers. Please click "Buy Now" below to check the current price on Amazon.)', de: '10,00 € – 15,00 € (Preisspanne. Der genaue Preis hängt von der Erntesaison und aktuellen Angeboten ab. Bitte klicken Sie unten auf „Jetzt kaufen", um den aktuellen Preis auf Amazon zu sehen.)' },
+    price: { en: '€10.00 – €15.00 (Price range. The exact price depends on the harvest season and current offers. Please click "Buy Now" below to check the current price on Amazon.)', de: '10,00 € – 15,00 € (Preisspanne. Der genaue Preis hängt von der Erntesaison und aktuellen Angeboten ab. Bitte klicken Sie unten auf "Jetzt kaufen", um den aktuellen Preis auf Amazon zu sehen.)' },
     addToCart: { en: 'Buy Now', de: 'Jetzt kaufen' }
   },
   kits: {
     title: { en: "Lion's Mane Grow Kits", de: 'Igel-Stachelbart Grow-Kits' },
     description: { en: 'Includes substrate block & tent, easy for beginners.', de: 'Enthält Substratblock & Zelt, ideal für Anfänger.' },
     specs: { en: ['5kg block', '60x60x120cm tent', 'Instructions'], de: ['5kg Block', '60x60x120cm Zelt', 'Anleitung'] },
-    price: { en: '$79.99', de: '79,99 €' },
+    price: { en: '€79.99', de: '79,99 €' },
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   substrate: {
     title: { en: "Lion's Mane Substrate Boxes", de: 'Igel-Stachelbart Substrat-Boxen' },
     description: { en: 'Refill your tent with ready-to-fruit substrate.', de: 'Zelt mit fruchtbarem Substrat nachfüllen.' },
     specs: { en: ['Pre-inoculated', 'Minimal setup', 'Plastic-free'], de: ['Vorinokuliert', 'Minimaler Aufbau', 'Ohne Plastik'] },
-    price: { en: '$39.99', de: '39,99 €' },
+    price: { en: '€39.99', de: '39,99 €' },
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   frozen: {
     title: { en: "Frozen Fresh Lion's Mane Mushrooms", de: 'Gefrorene frische Igel-Stachelbart-Pilze' },
     description: { en: 'Flash-frozen for peak freshness.', de: 'Blitzgefrostet für höchste Frische.' },
     specs: { en: ['500g packs', 'Shipped frozen', 'No preservatives'], de: ['500g Packungen', 'Gefroren versendet', 'Ohne Konservierungsstoffe'] },
-    price: { en: '$34.99', de: '34,99 €' },
+    price: { en: '€34.99', de: '34,99 €' },
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   about: {
