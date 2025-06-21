@@ -1,6 +1,6 @@
 import React, { useState, createContext, useContext } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import './index.css';
 // Translation dictionaries
 const translations = {
@@ -111,13 +111,28 @@ const LanguageContext = createContext();
 // Layout with Nav and Footer
 const Layout = ({ children }) => {
   const { lang, toggleLang } = useContext(LanguageContext);
+  const navigate = useNavigate();
   const t = (section, key) => translations[section][key]?.[lang] || '';
 
   const handleShopClick = (e) => {
     e.preventDefault();
-    const productsSection = document.getElementById('products-section');
-    if (productsSection) {
-      productsSection.scrollIntoView({ behavior: 'smooth' });
+    
+    // Navigate to home page first if not already there
+    if (window.location.hash !== '#/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const productsSection = document.getElementById('products-section');
+        if (productsSection) {
+          productsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const productsSection = document.getElementById('products-section');
+      if (productsSection) {
+        productsSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
