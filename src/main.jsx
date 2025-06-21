@@ -57,8 +57,9 @@ const translations = {
     addToCart: { en: 'Add to Cart', de: 'In den Warenkorb' }
   },
   about: {
-    title: { en: 'About Us', de: 'Über uns' },
-    text: { en: "Family-run farm since 2020, dedicated to sustainable Lion's Mane cultivation.", de: 'Familienbetrieb seit 2020, fokussiert auf nachhaltigen Igel-Stachelbart-Anbau.' }
+    title: { en: 'About Hanuman Farm', de: 'Über Hanuman Farm' },
+    text1: { en: 'Founded in 2023 and based in Stade, Niedersachsen, Germany, Hanuman Farm is a small family-run business committed to growing premium medicinal mushrooms with care and purpose. While Lion\'s Mane is our current specialty, we aim to expand into a broader range of functional and health-promoting fungi.', de: 'Gegründet im Jahr 2023 mit Sitz in Stade, Niedersachsen, Deutschland ist Hanuman Farm ein kleines, familiengeführtes Unternehmen, das sich dem Anbau hochwertiger medizinischer Pilze mit Sorgfalt und Überzeugung widmet. Aktuell liegt unser Fokus auf Igel-Stachelbart, doch wir möchten unser Sortiment auf weitere gesundheitsfördernde Pilzsorten ausweiten.' },
+    text2: { en: 'Our farming philosophy blends tradition with innovation, emphasizing sustainability, transparency, and wellness. Every mushroom is cultivated with the same intention we\'d grow food for our own family—with purity, respect for nature, and healing in mind.', de: 'Unsere Anbauphilosophie verbindet traditionelle Methoden mit moderner Innovation und legt Wert auf Nachhaltigkeit, Transparenz und Wohlbefinden. Jeder Pilz wird mit derselben Hingabe kultiviert, wie wir Lebensmittel für unsere eigene Familie anbauen würden – rein, naturverbunden und mit heilender Absicht.' }
   },
   benefits: {
     title: { en: "Health Benefits of Lion's Mane", de: 'Gesundheitsvorteile des Igel-Stachelbarts' },
@@ -204,8 +205,9 @@ const About = () => {
   const { lang } = useContext(LanguageContext);
   return (
     <div className="max-w-3xl mx-auto space-y-4">
-      <h2 className="text-3xl font-semibold">{translations.about.title[lang]}</h2>
-      <p>{translations.about.text[lang]}</p>
+      <h2 className="text-3xl font-semibold mb-4">{translations.about.title[lang]}</h2>
+      <p className="mb-4">{translations.about.text1[lang]}</p>
+      <p className="mb-4">{translations.about.text2[lang]}</p>
       <img src={`${import.meta.env.BASE_URL}/images/farm-detail.jpg`} alt="Farm" className="w-full rounded-lg" />
     </div>
   );
