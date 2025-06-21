@@ -74,6 +74,7 @@ const translations = {
     title: { en: 'Contact Us', de: 'Kontakt' },
     placeholders: { name: { en: 'Name', de: 'Name' }, email: { en: 'Email', de: 'E-Mail' }, message: { en: 'Message', de: 'Nachricht' }, submit: { en: 'Send Message', de: 'Senden' } }
   },
+  comingSoon: { en: 'Coming Soon!', de: 'Demnächst verfügbar!' },
   impressum: {
     title: { en: 'Impressum', de: 'Impressum' },
     companyName: { en: 'Hanuman Farm UG', de: 'Hanuman Farm UG' },
@@ -179,9 +180,9 @@ const GenericProduct = ({ section }) => {
     }
     
     return (
-      <button className="bg-[#2f4f4f] text-white px-6 py-2 rounded">
-        {t.addToCart[lang]}
-      </button>
+      <div className="bg-[#dc762f] text-white px-6 py-2 rounded text-center font-semibold">
+        {translations.comingSoon[lang]}
+      </div>
     );
   };
 
@@ -193,7 +194,7 @@ const GenericProduct = ({ section }) => {
       <ul className="list-disc list-inside">
         {t.specs[lang].map((item) => (<li key={item}>{item}</li>))}
       </ul>
-      <p className="text-xl font-bold mt-2">{t.price[lang]}</p>
+      {section === 'dried' && <p className="text-xl font-bold mt-2">{t.price[lang]}</p>}
       {renderButton()}
     </div>
   );
