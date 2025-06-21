@@ -178,9 +178,9 @@ const Home = () => {
   const { lang } = useContext(LanguageContext);
   const tHome = translations.home;
   return (
-    <div>
+    <main>
       <section className="hero bg-green-100 p-8 rounded-lg text-center">
-        <img src={`${import.meta.env.BASE_URL}images/hero-farm.png`} alt="Hanuman Farm" className="mx-auto mb-6 rounded-lg" />
+        <img src={`${import.meta.env.BASE_URL}images/hero-farm.png`} alt="Hanuman Farm - Premium Lion's Mane Mushrooms" className="mx-auto mb-6 rounded-lg" />
         <h1 className="text-4xl font-bold mb-4">{tHome.heroTitle[lang]}</h1>
         <p className="mb-6">{tHome.heroText[lang]}</p>
         <div className="flex justify-center space-x-4">
@@ -189,12 +189,13 @@ const Home = () => {
         </div>
       </section>
       <section id="products-section" className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 className="sr-only">Our Products</h2>
         <ProductCard section="dried" img={`${import.meta.env.BASE_URL}images/dried-thumb.png`} path="/dried" />
         <ProductCard section="kits" img={`${import.meta.env.BASE_URL}images/kits-thumb.png`} path="/kits" />
         <ProductCard section="substrate" img={`${import.meta.env.BASE_URL}images/substrate-thumb.png`} path="/substrate" />
         <ProductCard section="frozen" img={`${import.meta.env.BASE_URL}images/frozen-thumb.png`} path="/frozen" />
       </section>
-    </div>
+    </main>
   );
 };
 
@@ -240,59 +241,68 @@ const GenericProduct = ({ section }) => {
 const About = () => {
   const { lang } = useContext(LanguageContext);
   return (
-    <div className="max-w-3xl mx-auto space-y-4">
-      <h2 className="text-3xl font-semibold mb-4">{translations.about.title[lang]}</h2>
-      <p className="mb-4">{translations.about.text1[lang]}</p>
-      <p className="mb-4">{translations.about.text2[lang]}</p>
-      <img src={`${import.meta.env.BASE_URL}images/farm-detail.jpg`} alt="Farm" className="w-full rounded-lg" />
-    </div>
+    <main className="max-w-3xl mx-auto space-y-6">
+      <article>
+        <h1 className="text-3xl font-semibold mb-4">{translations.about.title[lang]}</h1>
+        <p className="mb-4">{translations.about.text1[lang]}</p>
+        <p className="mb-4">{translations.about.text2[lang]}</p>
+        <img src={`${import.meta.env.BASE_URL}images/farm-detail.jpg`} alt="Hanuman Farm - Sustainable Lion's Mane Cultivation" className="w-full rounded-lg" />
+      </article>
+    </main>
   );
 };
 
 const Benefits = () => {
   const { lang } = useContext(LanguageContext);
   return (
-    <div className="max-w-3xl mx-auto space-y-6">
-      <h2 className="text-3xl font-semibold">{translations.benefits.title[lang]}</h2>
+    <main className="max-w-3xl mx-auto space-y-6">
+      <article>
+        <h1 className="text-3xl font-semibold">{translations.benefits.title[lang]}</h1>
 
-      <ul className="list-disc list-inside grid grid-cols-1 md:grid-cols-2 gap-2">
-        {translations.benefits.list[lang].map((b) => (<li key={b}>{b}</li>))}
-      </ul>
+        <section className="mt-6">
+          <h2 className="text-xl font-semibold mb-4">Key Health Benefits</h2>
+          <ul className="list-disc list-inside grid grid-cols-1 md:grid-cols-2 gap-2">
+            {translations.benefits.list[lang].map((b) => (<li key={b}>{b}</li>))}
+          </ul>
+        </section>
 
-      <div className="space-y-4 text-sm text-gray-800">
-        <p>{translations.benefits.description1[lang]}</p>
-        <p>{translations.benefits.description2[lang]}</p>
-        <p>
-          <strong>{translations.benefits.referencesTitle[lang]}</strong>
-        </p>
-        <ul className="list-disc list-inside space-y-1 pl-4">
-          <li>
-            {translations.benefits.references[lang][0]} <a className="text-blue-600 underline" href="https://doi.org/10.1248/bpb.31.1727" target="_blank" rel="noopener noreferrer">DOI:10.1248/bpb.31.1727</a>
-          </li>
-          <li>
-            {translations.benefits.references[lang][1]}
-          </li>
-          <li>
-            {translations.benefits.references[lang][2]} <a className="text-blue-600 underline" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8785010/" target="_blank" rel="noopener noreferrer">PMC8785010</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+        <section className="space-y-4 text-sm text-gray-800">
+          <p>{translations.benefits.description1[lang]}</p>
+          <p>{translations.benefits.description2[lang]}</p>
+          <h3 className="font-semibold">{translations.benefits.referencesTitle[lang]}</h3>
+          <ul className="list-disc list-inside space-y-1 pl-4">
+            <li>
+              {translations.benefits.references[lang][0]} <a className="text-blue-600 underline" href="https://doi.org/10.1248/bpb.31.1727" target="_blank" rel="noopener noreferrer">DOI:10.1248/bpb.31.1727</a>
+            </li>
+            <li>
+              {translations.benefits.references[lang][1]}
+            </li>
+            <li>
+              {translations.benefits.references[lang][2]} <a className="text-blue-600 underline" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8785010/" target="_blank" rel="noopener noreferrer">PMC8785010</a>
+            </li>
+          </ul>
+        </section>
+      </article>
+    </main>
   );
 };
 
 const FAQ = () => {
   const { lang } = useContext(LanguageContext);
   return (
-    <div className="max-w-3xl mx-auto space-y-4">
-      <h2 className="text-3xl font-semibold">FAQ</h2>
-      {translations.faq.items.map(({ q, a }) => (
-        <details key={q[lang]} className="border rounded p-4">
-          <summary className="font-medium">{q[lang]}</summary>
-          <p className="mt-2">{a[lang]}</p>
-        </details>
-      ))}
-    </div>
+    <main className="max-w-3xl mx-auto space-y-4">
+      <article>
+        <h1 className="text-3xl font-semibold">FAQ</h1>
+        <section className="mt-6">
+          {translations.faq.items.map(({ q, a }) => (
+            <details key={q[lang]} className="border rounded p-4">
+              <summary className="font-medium">{q[lang]}</summary>
+              <p className="mt-2">{a[lang]}</p>
+            </details>
+          ))}
+        </section>
+      </article>
+    </main>
   );
 };
 
@@ -333,37 +343,41 @@ const Contact = () => {
 
   if (isSubmitted) {
     return (
-      <div className="max-w-3xl mx-auto space-y-4">
-        <h2 className="text-3xl font-semibold">{translations.contact.title[lang]}</h2>
-        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-          {translations.contact.success[lang]}
-        </div>
-        <button 
-          onClick={() => setIsSubmitted(false)} 
-          className="bg-[#2f4f4f] text-white px-6 py-2 rounded hover:bg-[#1a2f2f]"
-        >
-          {lang === 'en' ? 'Send Another Message' : 'Weitere Nachricht senden'}
-        </button>
-      </div>
+      <main className="max-w-3xl mx-auto space-y-4">
+        <article>
+          <h1 className="text-3xl font-semibold">{translations.contact.title[lang]}</h1>
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+            {translations.contact.success[lang]}
+          </div>
+          <button 
+            onClick={() => setIsSubmitted(false)} 
+            className="bg-[#2f4f4f] text-white px-6 py-2 rounded hover:bg-[#1a2f2f]"
+          >
+            {lang === 'en' ? 'Send Another Message' : 'Weitere Nachricht senden'}
+          </button>
+        </article>
+      </main>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto space-y-4">
-      <h2 className="text-3xl font-semibold">{translations.contact.title[lang]}</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <label className="block"><span>{p.name[lang]}</span><input type="text" name="name" required className="mt-1 p-2 border rounded w-full" /></label>
-        <label className="block"><span>{p.email[lang]}</span><input type="email" name="email" required className="mt-1 p-2 border rounded w-full" /></label>
-        <label className="block"><span>{p.message[lang]}</span><textarea name="message" rows="4" required className="mt-1 p-2 border rounded w-full"></textarea></label>
-        <button 
-          type="submit" 
-          disabled={isSubmitting}
-          className={`px-6 py-2 rounded text-white ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#2f4f4f] hover:bg-[#1a2f2f]'}`}
-        >
-          {isSubmitting ? (lang === 'en' ? 'Sending...' : 'Wird gesendet...') : p.submit[lang]}
-        </button>
-      </form>
-    </div>
+    <main className="max-w-3xl mx-auto space-y-4">
+      <article>
+        <h1 className="text-3xl font-semibold">{translations.contact.title[lang]}</h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <label className="block"><span>{p.name[lang]}</span><input type="text" name="name" required className="mt-1 p-2 border rounded w-full" /></label>
+          <label className="block"><span>{p.email[lang]}</span><input type="email" name="email" required className="mt-1 p-2 border rounded w-full" /></label>
+          <label className="block"><span>{p.message[lang]}</span><textarea name="message" rows="4" required className="mt-1 p-2 border rounded w-full"></textarea></label>
+          <button 
+            type="submit" 
+            disabled={isSubmitting}
+            className={`px-6 py-2 rounded text-white ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#2f4f4f] hover:bg-[#1a2f2f]'}`}
+          >
+            {isSubmitting ? (lang === 'en' ? 'Sending...' : 'Wird gesendet...') : p.submit[lang]}
+          </button>
+        </form>
+      </article>
+    </main>
   );
 };
 
