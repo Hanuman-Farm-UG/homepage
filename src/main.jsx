@@ -138,7 +138,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen text-[#2d2d2d] bg-[#fdf6e3]">
-      <header className="bg-[#2f4f4f] text-white p-4 flex justify-between items-center">
+      <header className="bg-[#2f4f4f] text-white p-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
         <Link to="/" className="text-2xl font-bold hover:text-gray-200">Hanuman Farm</Link>
         <nav className="flex space-x-4">
           {['home'].map((key) => (
